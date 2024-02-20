@@ -14,11 +14,24 @@ import { dictionary } from "./dictionary.js";
  */
 function canConstructWord(availableTiles, word) {
   // TASK #2: Word Checker
-
-  
-
-  // Replace the line below with your implementation.
-  throw new Error('Not implemented');
+  for (let char of word) {
+    if (char in availableTiles) {
+      if (availableTiles[char] >= 1) {
+        availableTiles[char] -= 1;
+      } else {
+        return false;
+      }
+    } else if ('*' in availableTiles) {
+      if (availableTiles['*'] >= 1) {
+        availableTiles['*'] -= 1;
+      } else {
+        return false;
+      }
+    } else {
+      return false;
+    }
+  }
+  return true;
 }
 
 /**
@@ -32,7 +45,7 @@ function canConstructWord(availableTiles, word) {
 function baseScore(word) {
   // TASK #3: Base Score Calculator
 
-  
+
 
   // Replace the line below with your implementation.
   throw new Error('Not implemented');
@@ -48,7 +61,7 @@ function baseScore(word) {
 function possibleWords(availableTiles) {
   // TASK #4: Possible Words
 
-  
+
 
   // Replace the line below with your implementation.
   throw new Error('Not implemented');
@@ -64,7 +77,7 @@ function possibleWords(availableTiles) {
 function bestPossibleWords(availableTiles) {
   // TASK #5: Best Possible Words
 
-  
+
 
   // Replace the line below with your implementation.
   throw new Error('Not implemented');
