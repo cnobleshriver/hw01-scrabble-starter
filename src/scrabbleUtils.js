@@ -14,16 +14,17 @@ import { dictionary } from "./dictionary.js";
  */
 function canConstructWord(availableTiles, word) {
   // TASK #2: Word Checker
+  let tilesCopy = {...availableTiles}
   for (let char of word) {
-    if (char in availableTiles) {
-      if (availableTiles[char] >= 1) {
-        availableTiles[char] -= 1;
+    if (char in tilesCopy) {
+      if (tilesCopy[char] >= 1) {
+        tilesCopy[char] -= 1;
       } else {
         return false;
       }
-    } else if ('*' in availableTiles) {
-      if (availableTiles['*'] >= 1) {
-        availableTiles['*'] -= 1;
+    } else if ('*' in tilesCopy) {
+      if (tilesCopy['*'] >= 1) {
+        tilesCopy['*'] -= 1;
       } else {
         return false;
       }
