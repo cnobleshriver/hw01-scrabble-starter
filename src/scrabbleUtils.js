@@ -74,7 +74,7 @@ function baseScore(word) {
     'z': 10
   };
   let totalPoints = 0;
-  for(let char of word) {
+  for (let char of word) {
     if (char in pointsMap) {
       totalPoints += pointsMap[char]
     }
@@ -109,11 +109,18 @@ function possibleWords(availableTiles) {
  */
 function bestPossibleWords(availableTiles) {
   // TASK #5: Best Possible Words
-
-
-
-  // Replace the line below with your implementation.
-  throw new Error('Not implemented');
+  let maxWords = [];
+  let maxScore = 0;
+  for (let word of possibleWords(availableTiles)) {
+    let curScore = baseScore(word);
+    if (curScore > maxScore) {
+      maxScore = curScore;
+      maxWords = [word];
+    } else if (score === maxScore) {
+      maxWords.push(word);
+    }
+  }
+  return maxWords;
 }
 
 // This exports our public functions.
