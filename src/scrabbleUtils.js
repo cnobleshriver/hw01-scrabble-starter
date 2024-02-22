@@ -91,11 +91,13 @@ function baseScore(word) {
  */
 function possibleWords(availableTiles) {
   // TASK #4: Possible Words
-
-
-
-  // Replace the line below with your implementation.
-  throw new Error('Not implemented');
+  let res = [];
+  for (let word of dictionary) {
+    if (canConstructWord(availableTiles, word)) {
+      res.push(word);
+    }
+  }
+  return res;
 }
 
 /**
